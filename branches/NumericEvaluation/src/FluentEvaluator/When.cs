@@ -5,14 +5,19 @@ namespace FluentEvaluator
 {
 	public class When
 	{
-		public static Evaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+		public static ObjectEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
-			return new Evaluation<TypeToEvaluate>(objectToEvaluate, true);
+			return new ObjectEvaluation<TypeToEvaluate>(objectToEvaluate, true);
 		}
 
 		public static EvaluationAction This(bool boolToEvaluate)
 		{
 			return new EvaluationAction(boolToEvaluate, boolToEvaluate, true);
+		}
+
+		public static NumericEvaluation<int> This(int integerToEvaluate)
+		{
+			return new NumericEvaluation<int>(integerToEvaluate, true);
 		}
 	}
 }
