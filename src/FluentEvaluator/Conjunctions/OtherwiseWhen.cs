@@ -38,9 +38,9 @@ namespace FluentEvaluator.Conjunctions
 			get; set;
 		}
 
-		public virtual Evaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+		public virtual ObjectEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
-			return new Evaluation<TypeToEvaluate>(objectToEvaluate, ContinueEvaluations);
+			return new ObjectEvaluation<TypeToEvaluate>(objectToEvaluate, ContinueEvaluations);
 		}
 	}
 

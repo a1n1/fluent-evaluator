@@ -58,6 +58,7 @@
     <Compile Include="EvaluationSpecs.cs" />
     <Compile Include="EvaluationUtilitiesSpecs.cs" />
     <Compile Include="IsNotEmptyEvaluation.cs" />
+    <Compile Include="GreaterThanNumericEvaluations.cs" />
     <Compile Include="OrEvaluations.cs" />
     <Compile Include="OtherwiseSpecs.cs" />
     <Compile Include="OtherwiseWhenSpecs.cs" />
