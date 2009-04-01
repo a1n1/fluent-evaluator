@@ -3,7 +3,7 @@ using FluentEvaluator.Actions;
 
 namespace FluentEvaluator.Evaluations
 {
-	public class AndEvaluation<TypeToEvaluate> : IObjectEvaluation<EvaluationAction, TypeToEvaluate>
+	public class AndEvaluation<TypeToEvaluate> : IEvaluation<EvaluationAction, TypeToEvaluate>
 	{
 		public AndEvaluation(TypeToEvaluate objectToEvaluate, bool conjuctiveEvaluation, bool continueEvaluations)
 		{
@@ -98,6 +98,26 @@ namespace FluentEvaluator.Evaluations
 			}
 
 			return new EvaluationAction(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
+		}
+
+		public EvaluationAction IsGreaterThan(TypeToEvaluate numericValue)
+		{
+			throw new NotImplementedException();
+		}
+
+		public EvaluationAction IsGreaterThanOrEqualTo(TypeToEvaluate numericValue)
+		{
+			throw new NotImplementedException();
+		}
+
+		public EvaluationAction IsLessThan(TypeToEvaluate numericValue)
+		{
+			throw new NotImplementedException();
+		}
+
+		public EvaluationAction IsLessThanOrEqualTo(TypeToEvaluate numericValue)
+		{
+			throw new NotImplementedException();
 		}
 
 		#endregion
