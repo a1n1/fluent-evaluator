@@ -2,7 +2,7 @@ using FluentEvaluator.Actions;
 
 namespace FluentEvaluator.Evaluations
 {
-	public abstract class Evaluation<TypeOfAction, TypeToEvaluate> : IEvaluation<TypeOfAction, TypeToEvaluate> where TypeOfAction : EvaluationAction
+	public abstract class Evaluation<TypeOfAction, TypeToEvaluate> : IEvaluation//<TypeOfAction, TypeToEvaluate> where TypeOfAction : EvaluationAction
 	{
 		protected Evaluation(TypeToEvaluate objectToEvaluate, bool continueEvaluations)
 		{

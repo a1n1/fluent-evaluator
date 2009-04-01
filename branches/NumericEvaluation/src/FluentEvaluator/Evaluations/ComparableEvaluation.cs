@@ -3,10 +3,10 @@ using FluentEvaluator.Actions;
 
 namespace FluentEvaluator.Evaluations
 {
-	public class NumericEvaluation<TypeToEvaluate> : Evaluation<EvaluationAction, TypeToEvaluate>, INumericEvaluation<EvaluationAction, TypeToEvaluate>
-		where TypeToEvaluate : IComparable<TypeToEvaluate>
+	public class ComparableEvaluation<TypeToEvaluate> : Evaluation<EvaluationAction, TypeToEvaluate>, IComparableEvaluation<EvaluationAction, TypeToEvaluate>
+		where TypeToEvaluate : IComparable
 	{
-		public NumericEvaluation(TypeToEvaluate objectToEvaluate, bool continueEvaluations) : base(objectToEvaluate, continueEvaluations)
+		public ComparableEvaluation(TypeToEvaluate objectToEvaluate, bool continueEvaluations) : base(objectToEvaluate, continueEvaluations)
 		{
 		}
 
