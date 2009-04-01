@@ -1,5 +1,4 @@
-﻿using System;
-using FluentEvaluator.Actions;
+﻿using FluentEvaluator.Actions;
 using FluentEvaluator.Evaluations;
 
 namespace FluentEvaluator.Conjunctions
@@ -38,14 +37,9 @@ namespace FluentEvaluator.Conjunctions
 			get; set;
 		}
 
-		public virtual IEvaluation This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+		public virtual Evaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
-			IComparable comparable = objectToEvaluate as IComparable;
-
-			if (comparable != null)
-				return new ComparableEvaluation<TypeToEvaluate>(objectToEvaluate, true);
-
-			return new ObjectEvaluation<TypeToEvaluate>(objectToEvaluate, true);
+			return new Evaluation<TypeToEvaluate>(objectToEvaluate, true);
 		}
 	}
 

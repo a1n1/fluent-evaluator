@@ -52,8 +52,6 @@
     <Compile Include="Evaluations\AndEvaluation.cs" />
     <Compile Include="Actions\EvaluationConclusion.cs" />
     <Compile Include="Evaluations\Evaluation.cs" />
-    <Compile Include="Evaluations\IComparableEvaluation.cs" />
-    <Compile Include="Evaluations\IObjectEvaluation.cs" />
     <Compile Include="EvaluationUtilities.cs" />
     <Compile Include="Conjunctions\IAndWhen.cs" />
     <Compile Include="Evaluations\IEvaluation.cs" />
@@ -66,10 +64,8 @@
     <Compile Include="Actions\OtherwiseAction.cs" />
     <Compile Include="Conjunctions\OtherwiseWhen.cs" />
     <Compile Include="Actions\SingularAction.cs" />
-    <Compile Include="Evaluations\ComparableEvaluation.cs" />
     <Compile Include="When.cs" />
     <Compile Include="Actions\EvaluationAction.cs" />
-    <Compile Include="Evaluations\ObjectEvaluation.cs" />
     <Compile Include="AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
