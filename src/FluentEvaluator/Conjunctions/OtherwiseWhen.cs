@@ -18,7 +18,8 @@ namespace FluentEvaluator.Conjunctions
 			EvaluationToPerform = evaluationToPerform;
 
 		}
-        
+
+
 		protected bool EvaluationToPerform
 		{
 			get;
@@ -37,9 +38,9 @@ namespace FluentEvaluator.Conjunctions
 			get; set;
 		}
 
-		public virtual Evaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+		public virtual ObjectEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
-			return new Evaluation<TypeToEvaluate>(objectToEvaluate, true);
+			return new ObjectEvaluation<TypeToEvaluate>(objectToEvaluate, ContinueEvaluations);
 		}
 	}
 
