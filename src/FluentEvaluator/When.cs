@@ -1,23 +1,22 @@
-﻿using FluentEvaluator.Actions;
+﻿using System;
+using FluentEvaluator.Actions;
 using FluentEvaluator.Evaluations;
 
 namespace FluentEvaluator
 {
 	public class When
 	{
-		public static ObjectEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+		public static IEvaluation This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
+			if (objectToEvaluate is IComparable)
+				return new ComparableEvaluation<TypeToEvaluate>(objectToEvaluate, true);
+			
 			return new ObjectEvaluation<TypeToEvaluate>(objectToEvaluate, true);
 		}
 
 		public static EvaluationAction This(bool boolToEvaluate)
 		{
 			return new EvaluationAction(boolToEvaluate, boolToEvaluate, true);
-		}
-
-		public static NumericEvaluation<int> This(int integerToEvaluate)
-		{
-			return new NumericEvaluation<int>(integerToEvaluate, true);
 		}
 	}
 }

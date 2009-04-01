@@ -2,8 +2,8 @@ using FluentEvaluator.Actions;
 
 namespace FluentEvaluator.Evaluations
 {
-	public interface IEvaluation<TypeOfAction, TypeToEvaluate> where TypeOfAction : EvaluationAction
+	public interface IEvaluation//<TypeOfAction, TypeToEvaluate> where TypeOfAction : EvaluationAction
 	{
-		TypeOfAction EqualsThis(TypeToEvaluate objectToEqual);
+		//TypeOfAction EqualsThis(TypeToEvaluate objectToEqual);
 	}
 }
