@@ -10,6 +10,6 @@ namespace FluentEvaluator.Conjunctions
 
 	public interface ISingularWhen : IWhen
 	{
-		IEvaluation<SingularAction<TypeToEvaluate>,TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
+		IEvaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
 	}
 }
