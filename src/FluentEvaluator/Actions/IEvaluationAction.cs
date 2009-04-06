@@ -1,4 +1,5 @@
 using System;
+using FluentEvaluator.Conjunctions;
 
 namespace FluentEvaluator.Actions
 {
@@ -8,5 +9,9 @@ namespace FluentEvaluator.Actions
 			where ExceptionType : Exception;
 
 		EvaluationConclusion DoThis(Action actionToPerform);
+
+		And And{ get; }
+
+		Or Or { get; }
 	}
 }

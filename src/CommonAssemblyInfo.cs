@@ -2,9 +2,9 @@
 using System.Runtime.InteropServices;
 
 [assembly: ComVisibleAttribute(false)]
-[assembly: AssemblyVersionAttribute("0.5.1.45")]
-[assembly: AssemblyFileVersionAttribute("0.5.1.45")]
+[assembly: AssemblyVersionAttribute("0.5.1.46")]
+[assembly: AssemblyFileVersionAttribute("0.5.1.46")]
 [assembly: AssemblyCopyrightAttribute("Copyright © Sean Biefeld 2009")]
 [assembly: AssemblyProductAttribute("FluentEvaluator")]
 [assembly: AssemblyConfigurationAttribute("Debug")]
-[assembly: AssemblyInformationalVersionAttribute("0.5.1.45")]
+[assembly: AssemblyInformationalVersionAttribute("0.5.1.46")]
