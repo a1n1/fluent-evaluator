@@ -7,8 +7,6 @@ namespace FluentEvaluator.Actions
 		EvaluationConclusion ThrowAnException<ExceptionType>(params object[] exceptionArguments)
 			where ExceptionType : Exception;
 
-
 		EvaluationConclusion DoThis(Action actionToPerform);
-		
 	}
 }
