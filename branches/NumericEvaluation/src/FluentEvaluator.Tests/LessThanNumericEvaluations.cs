@@ -3,20 +3,20 @@ using SpecUnit;
 
 namespace FluentEvaluator.Tests
 {
-	public class GreaterThanNumericEvaluations : ContextSpecification
+	public class LessThanNumericEvaluations : ContextSpecification
 	{
 		protected int _myNumber = 42;
 		protected bool _actionWasPerformed;
 	}
 
 	[TestFixture]
-	[Concern("Greater Than Evaluations")]
-	public class when_number_is_greater_than_other_number : GreaterThanNumericEvaluations
+	[Concern("Less Than Evaluations")]
+	public class when_number_is_less_than_other_number : LessThanNumericEvaluations
 	{
 		protected override void Context()
 		{
-			When.This(_myNumber).IsGreaterThan(11)
-				.DoThis(()=>_actionWasPerformed = true).Evaluate();
+			When.This(_myNumber).IsLessThan(41)
+				.DoThis(() => _actionWasPerformed = true).Evaluate();
 		}
 
 		[Test]
@@ -28,12 +28,12 @@ namespace FluentEvaluator.Tests
 	}
 
 	[TestFixture]
-	[Concern("Greater Than Evaluations")]
-	public class when_number_is_not_greater_than_other_number : GreaterThanNumericEvaluations
+	[Concern("Less Than Evaluations")]
+	public class when_number_is_not_less_than_other_number : LessThanNumericEvaluations
 	{
 		protected override void Context()
 		{
-			When.This(_myNumber).IsGreaterThan(52)
+			When.This(_myNumber).IsLessThan(43)
 				.DoThis(() => _actionWasPerformed = true).Evaluate();
 		}
 
@@ -46,12 +46,12 @@ namespace FluentEvaluator.Tests
 	}
 
 	[TestFixture]
-	[Concern("Greater Than Evaluations")]
-	public class when_number_is_equal_to_other_number_checking_greater_than : GreaterThanNumericEvaluations
+	[Concern("Less Than Evaluations")]
+	public class when_number_is_equal_to_other_number_checking_less_than : LessThanNumericEvaluations
 	{
 		protected override void Context()
 		{
-			When.This(_myNumber).IsGreaterThan(_myNumber)
+			When.This(_myNumber).IsLessThan(_myNumber)
 				.DoThis(() => _actionWasPerformed = true).Evaluate();
 		}
 

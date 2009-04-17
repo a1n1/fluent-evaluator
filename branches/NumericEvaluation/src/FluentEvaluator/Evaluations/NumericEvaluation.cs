@@ -12,14 +12,14 @@ namespace FluentEvaluator.Evaluations
 
 		public override EvaluationAction EqualsThis(TypeToEvaluate objectToEqual)
 		{
-			EvaluationToPerform = Equals(CompareType.EqualTo, EvaluationUtilities.GetComparisonType(ObjectToEvaluate.CompareTo(objectToEqual)));
+			EvaluationToPerform = Equals(CompareType.EqualTo, EvaluationUtilities.GetComparisonType(objectToEqual.CompareTo(ObjectToEvaluate)));
 			
 			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
 		}
 
 		public EvaluationAction IsGreaterThan(TypeToEvaluate numericValue)
 		{
-			EvaluationToPerform = Equals(CompareType.GreaterThan, EvaluationUtilities.GetComparisonType(ObjectToEvaluate.CompareTo(numericValue)));
+			EvaluationToPerform = Equals(CompareType.GreaterThan, EvaluationUtilities.GetComparisonType(numericValue.CompareTo(ObjectToEvaluate)));
 
 			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
 		}
@@ -31,7 +31,9 @@ namespace FluentEvaluator.Evaluations
 
 		public EvaluationAction IsLessThan(TypeToEvaluate numericValue)
 		{
-			throw new NotImplementedException();
+			EvaluationToPerform = Equals(CompareType.LessThan, EvaluationUtilities.GetComparisonType(numericValue.CompareTo(ObjectToEvaluate)));
+
+			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
 		}
 
 		public EvaluationAction IsLessThanOrEqualTo(TypeToEvaluate numericValue)
