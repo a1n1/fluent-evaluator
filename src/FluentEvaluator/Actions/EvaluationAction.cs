@@ -26,8 +26,6 @@ namespace FluentEvaluator.Actions
 			}
 		}
 
-		#region properties
-
 		protected object ObjectToEvaluate
 		{
 			get;
@@ -61,8 +59,6 @@ namespace FluentEvaluator.Actions
 				return new Or(EvaluationToPerform, ContinueEvaluations);
 			}
 		}
-
-		#endregion
 
 		public EvaluationConclusion ThrowAnException<ExceptionType>(params object[] exceptionArguments) where ExceptionType : Exception
 		{

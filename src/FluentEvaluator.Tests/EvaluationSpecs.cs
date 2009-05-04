@@ -11,7 +11,7 @@ namespace FluentEvaluator.Tests
 	}
 
 	[TestFixture]
-	[Concern("EqualsThis evaluation")]
+	[Concern("Equals evaluation")]
 	public class when_objects_equal : EvaluationSpecs
 	{
 		protected override void Context()
@@ -19,7 +19,7 @@ namespace FluentEvaluator.Tests
 			_testableFooOne = new TestableFoo();
 			_testableFooTwo = _testableFooOne;
 
-			When.This(_testableFooOne).EqualsThis(_testableFooTwo).DoThis(() => _count++).Evaluate();
+			When.This(_testableFooOne).Equals(_testableFooTwo).DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -31,7 +31,7 @@ namespace FluentEvaluator.Tests
 	}
 
 	[TestFixture]
-	[Concern("EqualsThis evaluation")]
+	[Concern("Equals evaluation")]
 	public class when_objects_dont_equal : EvaluationSpecs
 	{
 		protected override void Context()
@@ -39,7 +39,7 @@ namespace FluentEvaluator.Tests
 			_testableFooOne = new TestableFoo();
 			_testableFooTwo = new TestableFoo();
 
-			When.This(_testableFooOne).EqualsThis(_testableFooTwo).DoThis(() => _count++);
+			When.This(_testableFooOne).Equals(_testableFooTwo).DoThis(() => _count++);
 		}
 
 		[Test]

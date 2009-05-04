@@ -12,8 +12,6 @@ namespace FluentEvaluator.Tests
 		protected int _count = 1;
 	}
 
-	#region null evaluations
-
 	[TestFixture]
 	[Concern("and null evaluation")]
 	public class when_using_an_and_evaluating_null_and_it_is_true : AndEvaluations
@@ -58,10 +56,6 @@ namespace FluentEvaluator.Tests
 		}
 	}
 
-	#endregion
-
-	#region empty evaluations
-
 	[TestFixture]
 	[Concern("and empty evaluations")]
 	public class when_using_an_and_expression_and_checking_is_empty_when_not_empty : AndEvaluations
@@ -103,17 +97,13 @@ namespace FluentEvaluator.Tests
 		}
 	}
 
-	#endregion
-
-	#region equal evaluations
-
 	[TestFixture]
 	[Concern("and equal evaluations")]
 	public class when_using_an_and_expression_and_checking_equals_and_it_does_equal : AndEvaluations
 	{
 		protected override void Context()
 		{
-			When.This(1).EqualsThis(1).And.When.This(2).EqualsThis(2).DoThis(() => _count++).Evaluate();
+			When.This(1).Equals(1).And.When.This(2).Equals(2).DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -130,7 +120,7 @@ namespace FluentEvaluator.Tests
 	{
 		protected override void Context()
 		{
-			When.This(1).EqualsThis(3).And.When.This(2).EqualsThis(5).DoThis(() => _count++).Evaluate();
+			When.This(1).Equals(3).And.When.This(2).Equals(5).DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -140,6 +130,4 @@ namespace FluentEvaluator.Tests
 			_count.ShouldEqual(1);
 		}
 	}
-
-	#endregion
 }

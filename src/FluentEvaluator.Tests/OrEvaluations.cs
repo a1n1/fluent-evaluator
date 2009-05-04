@@ -12,8 +12,6 @@ namespace FluentEvaluator.Tests
 		protected int _count = 1;
 	}
 
-	#region or null evaluations
-
 	[TestFixture]
 	[Concern("or null evaluation")]
 	public class when_using_an_or_evaluating_null_and_it_is_true : OrEvaluations
@@ -53,10 +51,6 @@ namespace FluentEvaluator.Tests
 			_count.ShouldEqual(1);
 		}
 	}
-
-	#endregion
-
-	#region or empty evaluations
 
 	[TestFixture]
 	[Concern("or empty evaluations")]
@@ -98,10 +92,6 @@ namespace FluentEvaluator.Tests
 		}
 	}
 
-	#endregion
-
-	#region equal evaluations
-
 	[TestFixture]
 	[Concern("or equal evaluations")]
 	public class when_using_an_or_expression_and_checking_equals_and_it_does_equal : OrEvaluations
@@ -110,7 +100,7 @@ namespace FluentEvaluator.Tests
 
 		protected override void Context()
 		{
-			When.This(stringToCompare).EqualsThis("foo").Or.When.This(stringToCompare).EqualsThis(string.Empty).DoThis(() => _count++).Evaluate();
+			When.This(stringToCompare).Equals("foo").Or.When.This(stringToCompare).Equals(string.Empty).DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -127,7 +117,7 @@ namespace FluentEvaluator.Tests
 	{
 		protected override void Context()
 		{
-			When.This(1).EqualsThis(3).Or.When.This(2).EqualsThis(5).DoThis(() => _count++).Evaluate();
+			When.This(1).Equals(3).Or.When.This(2).Equals(5).DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -137,6 +127,4 @@ namespace FluentEvaluator.Tests
 			_count.ShouldEqual(1);
 		}
 	}
-
-	#endregion
 }

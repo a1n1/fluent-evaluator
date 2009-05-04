@@ -24,6 +24,6 @@ namespace FluentEvaluator.Evaluations
 			set;
 		}
 
-		public abstract TypeOfAction EqualsThis(TypeToEvaluate objectToEqual);
+		public abstract TypeOfAction Equals(TypeToEvaluate objectToEqual);
 	}
 }

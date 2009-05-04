@@ -5,8 +5,6 @@ namespace FluentEvaluator.Evaluations
 {
 	public class ObjectEvaluation<TypeToEvaluate> : Evaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate>, IObjectEvaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate>
 	{
-		#region public members
-
 		public ObjectEvaluation(TypeToEvaluate objectToEvaluate, bool continueEvaluations) : base(objectToEvaluate, continueEvaluations)
 		{
 		}
@@ -38,7 +36,7 @@ namespace FluentEvaluator.Evaluations
 			}
 		}
 
-		public override SingularAction<TypeToEvaluate> EqualsThis(TypeToEvaluate objectToEqual)
+		public override SingularAction<TypeToEvaluate> Equals(TypeToEvaluate objectToEqual)
 		{
 			EvaluationToPerform = (ObjectToEvaluate.Equals(objectToEqual));
 			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
@@ -61,7 +59,5 @@ namespace FluentEvaluator.Evaluations
 
 			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
 		}
-
-		#endregion
 	}
 }

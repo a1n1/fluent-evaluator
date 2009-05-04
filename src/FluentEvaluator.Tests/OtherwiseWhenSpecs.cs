@@ -119,7 +119,7 @@ namespace FluentEvaluator.Tests
 		{
 			When.This("").IsNotEmpty.DoThis(() => count = 1)
 				.Otherwise.When.This("fry").IsNotEmpty.DoThis(() => count = 2)
-				.Otherwise.When.This(42).EqualsThis(43).DoThis(() => count = 3)
+				.Otherwise.When.This(42).Equals(43).DoThis(() => count = 3)
 			.Evaluate();
 		}
 
