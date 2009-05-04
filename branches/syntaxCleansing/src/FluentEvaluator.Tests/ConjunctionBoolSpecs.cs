@@ -15,7 +15,7 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(false)
-				.Or.When.This(true)
+				.Or.When(true)
 			.DoThis(() => _myNumber++).Evaluate();
 		}
 
@@ -34,7 +34,7 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(false)
-				.Or.When.This(false)
+				.Or.When(false)
 			.DoThis(() => _myNumber++).Evaluate();
 		}
 
@@ -53,7 +53,7 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(true)
-				.And.When.This(true)
+				.And.When(true)
 			.DoThis(() => _myNumber++).Evaluate();
 		}
 
@@ -72,7 +72,7 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(true)
-				.And.When.This(false)
+				.And.When(false)
 			.DoThis(() => _myNumber++).Evaluate();
 		}
 
@@ -93,8 +93,8 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(true)
-				.Or.When.This(false)
-				.Or.When.This(false)
+				.Or.When(false)
+				.Or.When(false)
 				.DoThis(() => actionWasPerformed = true)
 				.Evaluate();
 		}

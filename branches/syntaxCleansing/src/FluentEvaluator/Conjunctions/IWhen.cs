@@ -5,27 +5,27 @@ namespace FluentEvaluator.Conjunctions
 {
 	public interface IWhen
 	{
-		NumericEvaluation<int> This(int numberToEvaluate);
+		NumericEvaluation<int> When(int numberToEvaluate);
 
-		NumericEvaluation<double> This(double numberToEvaluate);
+		NumericEvaluation<double> When(double numberToEvaluate);
 
-		NumericEvaluation<float> This(float numberToEvaluate);
+        NumericEvaluation<float> When(float numberToEvaluate);
 
-		NumericEvaluation<long> This(long numberToEvaluate);
+        NumericEvaluation<long> When(long numberToEvaluate);
 
-		NumericEvaluation<short> This(short numberToEvaluate);
+        NumericEvaluation<short> When(short numberToEvaluate);
 
-		NumericEvaluation<decimal> This(decimal numberToEvaluate);
+        NumericEvaluation<decimal> When(decimal numberToEvaluate);
 
-		NumericEvaluation<uint> This(uint numberToEvaluate);
+        NumericEvaluation<uint> When(uint numberToEvaluate);
 
-		NumericEvaluation<ulong> This(ulong numberToEvaluate);
+        NumericEvaluation<ulong> When(ulong numberToEvaluate);
 
-		NumericEvaluation<ushort> This(ushort numberToEvaluate);
+        NumericEvaluation<ushort> When(ushort numberToEvaluate);
 	}
 
 	public interface ISingularWhen : IWhen
 	{
-		IEvaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
+        IEvaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate> When<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
 	}
 }
