@@ -26,54 +26,54 @@ namespace FluentEvaluator.Conjunctions
 			set;
 		}
 
-		public virtual IEvaluationAction When(bool boolToEvaluate)
+		public virtual IEvaluationAction This(bool boolToEvaluate)
 		{
 			EvaluationToPerform = boolToEvaluate;
 
 			return new EvaluationAction(boolToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
 
-        public NumericEvaluation<int> When(int numberToEvaluate)
+        public NumericEvaluation<int> This(int numberToEvaluate)
 		{
 			return new NumericEvaluation<int>(numberToEvaluate, ContinueEvaluations);
 		}
 
-        public NumericEvaluation<double> When(double numberToEvaluate)
+        public NumericEvaluation<double> This(double numberToEvaluate)
 		{
 			return new NumericEvaluation<double>(numberToEvaluate, ContinueEvaluations);
 		}
 
-        public NumericEvaluation<float> When(float numberToEvaluate)
+        public NumericEvaluation<float> This(float numberToEvaluate)
 		{
 			return new NumericEvaluation<float>(numberToEvaluate, ContinueEvaluations);
 		}
 
-        public NumericEvaluation<long> When(long numberToEvaluate)
+        public NumericEvaluation<long> This(long numberToEvaluate)
 		{
 			return new NumericEvaluation<long>(numberToEvaluate, ContinueEvaluations);
 		}
 
-        public NumericEvaluation<short> When(short numberToEvaluate)
+        public NumericEvaluation<short> This(short numberToEvaluate)
 		{
 			return new NumericEvaluation<short>(numberToEvaluate, ContinueEvaluations);
 		}
 
-        public NumericEvaluation<decimal> When(decimal numberToEvaluate)
+        public NumericEvaluation<decimal> This(decimal numberToEvaluate)
 		{
 			return new NumericEvaluation<decimal>(numberToEvaluate, ContinueEvaluations);
 		}
 
-        public NumericEvaluation<uint> When(uint numberToEvaluate)
+        public NumericEvaluation<uint> This(uint numberToEvaluate)
 		{
 			return new NumericEvaluation<uint>(numberToEvaluate, ContinueEvaluations);
 		}
 
-        public NumericEvaluation<ulong> When(ulong numberToEvaluate)
+        public NumericEvaluation<ulong> This(ulong numberToEvaluate)
 		{
 			return new NumericEvaluation<ulong>(numberToEvaluate, ContinueEvaluations);
 		}
 
-        public NumericEvaluation<ushort> When(ushort numberToEvaluate)
+        public NumericEvaluation<ushort> This(ushort numberToEvaluate)
 		{
 			return new NumericEvaluation<ushort>(numberToEvaluate, ContinueEvaluations);
 		}
@@ -83,13 +83,30 @@ namespace FluentEvaluator.Conjunctions
 			get; set;
 		}
 
-        public virtual ObjectEvaluation<TypeToEvaluate> When<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+        public virtual ObjectEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
 			return new ObjectEvaluation<TypeToEvaluate>(objectToEvaluate, ContinueEvaluations);
 		}
 	}
 
-	public interface IOtherwiseWhen:IWhen
+	public interface IOtherwiseWhen
 	{
+        NumericEvaluation<int> This(int numberToEvaluate);
+
+        NumericEvaluation<double> This(double numberToEvaluate);
+
+        NumericEvaluation<float> This(float numberToEvaluate);
+
+        NumericEvaluation<long> This(long numberToEvaluate);
+
+        NumericEvaluation<short> This(short numberToEvaluate);
+
+        NumericEvaluation<decimal> This(decimal numberToEvaluate);
+
+        NumericEvaluation<uint> This(uint numberToEvaluate);
+
+        NumericEvaluation<ulong> This(ulong numberToEvaluate);
+
+        NumericEvaluation<ushort> This(ushort numberToEvaluate);
 	}
 }
