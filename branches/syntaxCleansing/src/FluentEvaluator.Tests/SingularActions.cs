@@ -7,8 +7,6 @@ namespace FluentEvaluator.Tests
 	{
 	}
 
-	#region when is null creation specs
-
 	[TestFixture]
 	[Concern("Fluent Evaluator")]
 	public class when_creating_on_null : EvaluationActionsSpecs
@@ -139,6 +137,4 @@ namespace FluentEvaluator.Tests
 			Assert.AreEqual("asdf", _testableString);
 		}
 	}
-
-	#endregion
 }

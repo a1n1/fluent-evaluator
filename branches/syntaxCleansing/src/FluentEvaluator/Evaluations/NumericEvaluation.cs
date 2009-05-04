@@ -10,7 +10,7 @@ namespace FluentEvaluator.Evaluations
 		{
 		}
 
-		public override EvaluationAction EqualsThis(TypeToEvaluate objectToEqual)
+		public override EvaluationAction Equals(TypeToEvaluate objectToEqual)
 		{
 			EvaluationToPerform = Equals(CompareType.EqualTo, EvaluationUtilities.GetComparisonType(objectToEqual.CompareTo(ObjectToEvaluate)));
 			

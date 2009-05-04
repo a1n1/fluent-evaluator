@@ -15,7 +15,7 @@ namespace FluentEvaluator.Tests
 	{
 		protected override void Context()
 		{
-			When.This(_myNumber).EqualsThis(42)
+			When.This(_myNumber).Equals(42)
 				.DoThis(() => _actionWasPerformed = true).Evaluate();
 		}
 
@@ -33,7 +33,7 @@ namespace FluentEvaluator.Tests
 	{
 		protected override void Context()
 		{
-			When.This(_myNumber).EqualsThis(11)
+			When.This(_myNumber).Equals(11)
 				.DoThis(() => _actionWasPerformed = true).Evaluate();
 		}
 

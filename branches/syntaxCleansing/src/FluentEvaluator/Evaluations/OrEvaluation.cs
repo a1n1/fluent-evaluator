@@ -12,8 +12,6 @@ namespace FluentEvaluator.Evaluations
 			ContinueEvaluations = continueEvaluations;
 		}
         
-		#region properties
-
 		protected virtual TypeToEvaluate ObjectToEvaluate
 		{
 			get;
@@ -31,10 +29,6 @@ namespace FluentEvaluator.Evaluations
 			get;
 			set;
 		}
-
-		#endregion
-
-		#region public members
 
 		public EvaluationAction IsNull
 		{
@@ -63,7 +57,7 @@ namespace FluentEvaluator.Evaluations
 			}
 		}
 
-		public EvaluationAction EqualsThis(TypeToEvaluate objectToEqual)
+		public EvaluationAction Equals(TypeToEvaluate objectToEqual)
 		{
 			EvaluationToPerform |= (ObjectToEvaluate.Equals(objectToEqual));
 			return new EvaluationAction(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
@@ -86,7 +80,5 @@ namespace FluentEvaluator.Evaluations
 
 			return new EvaluationAction(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
-        
-		#endregion
 	}
 }

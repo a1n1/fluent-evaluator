@@ -27,14 +27,10 @@ namespace FluentEvaluator.Actions
 			return (TypeToEvaluate)ObjectToEvaluate;
 		}
 
-		#region private members
-
 		private void PerformAction()
 		{
 			if (EvaluationToPerform)
 				ActionToPerformAfterEvaluation();
 		}
-
-		#endregion
 	}
 }
