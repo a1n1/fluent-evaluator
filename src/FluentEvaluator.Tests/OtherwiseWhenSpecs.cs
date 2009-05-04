@@ -15,11 +15,11 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(false).DoThis(()=>count = 1)
-				.Otherwise.When.This(false).DoThis(()=>count =2)
-				.Otherwise.When.This(false).DoThis(()=>count =3)
-				.Otherwise.When.This(true).DoThis(()=>count = 4)
-				.Otherwise.When.This(false).DoThis(()=>count = 5)
-				.Otherwise.When.This(true).DoThis(()=>count = 6)
+				.Otherwise.When.When(false).DoThis(()=>count =2)
+                .Otherwise.When.When(false).DoThis(() => count = 3)
+                .Otherwise.When.When(true).DoThis(() => count = 4)
+                .Otherwise.When.When(false).DoThis(() => count = 5)
+                .Otherwise.When.When(true).DoThis(() => count = 6)
 				.Otherwise.DoThis(()=>count = 7).Evaluate();
 		}
 
@@ -38,11 +38,11 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(false).DoThis(() => count = 1)
-				.Otherwise.When.This(false).DoThis(() => count = 2)
-				.Otherwise.When.This(false).DoThis(() => count = 3)
-				.Otherwise.When.This(false).DoThis(() => count = 4)
-				.Otherwise.When.This(true).DoThis(() => count = 5)
-				.Otherwise.When.This(false).DoThis(() => count = 6)
+                .Otherwise.When.When(false).DoThis(() => count = 2)
+                .Otherwise.When.When(false).DoThis(() => count = 3)
+                .Otherwise.When.When(false).DoThis(() => count = 4)
+                .Otherwise.When.When(true).DoThis(() => count = 5)
+                .Otherwise.When.When(false).DoThis(() => count = 6)
 				.Otherwise.DoThis(() => count = 7).Evaluate();
 		}
 
@@ -61,7 +61,7 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(false).DoThis(() => count = 1)
-				.Otherwise.When.This(true).DoThis(() => count = 2)
+                .Otherwise.When.When(true).DoThis(() => count = 2)
 				.Otherwise.DoThis(() => count = 3).Evaluate();
 		}
 
@@ -80,8 +80,8 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(false).DoThis(() => count = 1)
-				.Otherwise.When.This(false).DoThis(() => count = 2)
-				.Otherwise.When.This(false).DoThis(() => count = 3)
+                .Otherwise.When.When(false).DoThis(() => count = 2)
+                .Otherwise.When.When(false).DoThis(() => count = 3)
 				.Otherwise.DoThis(() => count = 4).Evaluate();
 		}
 
@@ -100,7 +100,7 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This(false).DoThis(() => count = 1)
-				.Otherwise.When.This(true).DoThis(() => count = 2).Evaluate();
+                .Otherwise.When.When(true).DoThis(() => count = 2).Evaluate();
 		}
 
 		[Test]
@@ -118,8 +118,8 @@ namespace FluentEvaluator.Tests
 		protected override void Context()
 		{
 			When.This("").IsNotEmpty.DoThis(() => count = 1)
-				.Otherwise.When.This("fry").IsNotEmpty.DoThis(() => count = 2)
-				.Otherwise.When.This(42).Equals(43).DoThis(() => count = 3)
+                .Otherwise.When.When("fry").IsNotEmpty.DoThis(() => count = 2)
+                .Otherwise.When.When(42).Equals(43).DoThis(() => count = 3)
 			.Evaluate();
 		}
 
