@@ -9,10 +9,6 @@ namespace FluentEvaluator.Evaluations
 	{
 		TypeOfAction IsGreaterThan(TypeToEvaluate numericValue);
 		
-		TypeOfAction IsGreaterThanOrEqualTo(TypeToEvaluate numericValue);
-
 		TypeOfAction IsLessThan(TypeToEvaluate numericValue);
-
-		TypeOfAction IsLessThanOrEqualTo(TypeToEvaluate numericValue);
 	}
 }

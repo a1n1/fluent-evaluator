@@ -19,26 +19,16 @@ namespace FluentEvaluator.Evaluations
 
 		public EvaluationAction IsGreaterThan(TypeToEvaluate numericValue)
 		{
-			EvaluationToPerform = Equals(CompareType.GreaterThan, EvaluationUtilities.GetComparisonType(numericValue.CompareTo(ObjectToEvaluate)));
+            EvaluationToPerform = Equals(CompareType.GreaterThan, EvaluationUtilities.GetComparisonType(ObjectToEvaluate.CompareTo(numericValue)));
 
 			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
-		}
-
-		public EvaluationAction IsGreaterThanOrEqualTo(TypeToEvaluate numericValue)
-		{
-			throw new NotImplementedException();
 		}
 
 		public EvaluationAction IsLessThan(TypeToEvaluate numericValue)
 		{
-			EvaluationToPerform = Equals(CompareType.LessThan, EvaluationUtilities.GetComparisonType(numericValue.CompareTo(ObjectToEvaluate)));
+            EvaluationToPerform = Equals(CompareType.LessThan, EvaluationUtilities.GetComparisonType(numericValue.CompareTo(ObjectToEvaluate)));
 
 			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
-		}
-
-		public EvaluationAction IsLessThanOrEqualTo(TypeToEvaluate numericValue)
-		{
-			throw new NotImplementedException();
 		}
 	}
 }
