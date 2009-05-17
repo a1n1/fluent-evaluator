@@ -14,17 +14,20 @@ namespace FluentEvaluator.Conjunctions
 			set;
 		}
 
-		public And(bool evaluationToPerform, bool continueEvaluations)
+		public And(bool evaluationToPerform, bool continueEvaluations, object objectToEvaluate)
 		{
 			EvaluationToPerform = evaluationToPerform;
 			ContinueEvaluations = continueEvaluations;
+			ObjectToEvaluate = objectToEvaluate;
 		}
+
+		protected object ObjectToEvaluate { get; set; }
 
 		public virtual AndWhen When
 		{
 			get
 			{
-				return new AndWhen(EvaluationToPerform, ContinueEvaluations);
+				return new AndWhen(EvaluationToPerform, ContinueEvaluations, ObjectToEvaluate);
 			}
 		}
 	}

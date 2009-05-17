@@ -48,7 +48,7 @@ namespace FluentEvaluator.Actions
 		{
 			get
 			{
-				return new And(EvaluationToPerform, ContinueEvaluations);
+				return new And(EvaluationToPerform, ContinueEvaluations, ObjectToEvaluate);
 			}
 		}
 
