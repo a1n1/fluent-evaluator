@@ -3,7 +3,7 @@ using FluentEvaluator.Evaluations;
 
 namespace FluentEvaluator.Conjunctions
 {
-	public class OtherwiseWhen : IOtherwiseWhen
+	public class OtherwiseWhen : IWhen
 	{
 		public OtherwiseWhen(bool evaluationToPerform, EvaluationConclusion evaluationConclusion, bool continueEvaluations)
 		{
@@ -16,9 +16,13 @@ namespace FluentEvaluator.Conjunctions
 			}
 
 			EvaluationToPerform = evaluationToPerform;
-
 		}
 
+		protected bool ContinueEvaluations
+		{
+			get;
+			set;
+		}
 
 		protected bool EvaluationToPerform
 		{
@@ -78,18 +82,9 @@ namespace FluentEvaluator.Conjunctions
 			return new NumericEvaluation<ushort>(numberToEvaluate, ContinueEvaluations);
 		}
 
-		protected bool ContinueEvaluations
-		{
-			get; set;
-		}
-
 		public virtual ObjectEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
 			return new ObjectEvaluation<TypeToEvaluate>(objectToEvaluate, ContinueEvaluations);
 		}
-	}
-
-	public interface IOtherwiseWhen:IWhen
-	{
 	}
 }

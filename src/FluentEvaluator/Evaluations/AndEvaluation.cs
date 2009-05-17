@@ -66,7 +66,12 @@ namespace FluentEvaluator.Evaluations
 		public EvaluationAction Equals(TypeToEvaluate objectToEqual)
 		{
 			if (EvaluationToPerform)
-				EvaluationToPerform &= (ObjectToEvaluate.Equals(objectToEqual));
+			{
+				if (Equals(ObjectToEvaluate, default(TypeToEvaluate)))
+					EvaluationToPerform &= false;
+				else
+					EvaluationToPerform &= (ObjectToEvaluate.Equals(objectToEqual));
+			}
 
 			return new EvaluationAction(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
