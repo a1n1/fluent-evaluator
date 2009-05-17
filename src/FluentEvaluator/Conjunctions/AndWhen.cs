@@ -5,11 +5,14 @@ namespace FluentEvaluator.Conjunctions
 {
 	public class AndWhen : IAndWhen
 	{
-		public AndWhen(bool evaluationToPerform, bool continueEvaluations)
+		public AndWhen(bool evaluationToPerform, bool continueEvaluations, object objectToEvaluate)
 		{
 			EvaluationToPerform = evaluationToPerform;
 			ContinueEvaluations = continueEvaluations;
+			ObjectToEvaluate = objectToEvaluate;
 		}
+
+		protected object ObjectToEvaluate { get; set; }
 
 		protected bool EvaluationToPerform
 		{
@@ -22,6 +25,11 @@ namespace FluentEvaluator.Conjunctions
 			get;
 			set;
 		}
+
+		public AndEvaluation<object> It { get
+		{
+			return new AndEvaluation<object>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
+		} }
 
 		public virtual IEvaluationAction This(bool boolToEvaluate)
 		{
