@@ -4,6 +4,6 @@ namespace FluentEvaluator.Conjunctions
 {
 	public interface IOrWhen : IWhen
 	{
-		OrEvaluation<TypeToEvaluate> When<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
+		OrEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
 	}
 }

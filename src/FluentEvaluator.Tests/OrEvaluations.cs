@@ -21,7 +21,7 @@ namespace FluentEvaluator.Tests
 			_testableString = null;
 			_testableFoo = null;
 
-			When.This(_testableFoo).IsNull.Or.When(_testableString).IsNull.DoThis(() => _count++).Evaluate();
+			When.This(_testableFoo).IsNull.Or.When.This(_testableString).IsNull.DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -41,7 +41,7 @@ namespace FluentEvaluator.Tests
 			_testableString = "asdf";
 			_testableFoo = new TestableFoo();
 
-			When.This(_testableFoo).IsNull.Or.When(_testableString).IsNull.DoThis(() => _count++).Evaluate();
+			When.This(_testableFoo).IsNull.Or.When.This(_testableString).IsNull.DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -61,7 +61,7 @@ namespace FluentEvaluator.Tests
 			_testableString = "asdf";
 			_testableList = new List<object> { new object() };
 
-			When.This(_testableString).IsEmpty.Or.When(_testableList).IsEmpty.DoThis(() => _count++).Evaluate();
+			When.This(_testableString).IsEmpty.Or.When.This(_testableList).IsEmpty.DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -81,7 +81,7 @@ namespace FluentEvaluator.Tests
 			_testableString = string.Empty;
 			_testableList = new List<object>();
 
-			When.This(_testableString).IsEmpty.Or.When(_testableList).IsEmpty.DoThis(() => _count++).Evaluate();
+			When.This(_testableString).IsEmpty.Or.When.This(_testableList).IsEmpty.DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -100,7 +100,7 @@ namespace FluentEvaluator.Tests
 
 		protected override void Context()
 		{
-			When.This(stringToCompare).Equals("foo").Or.When(stringToCompare).Equals(string.Empty).DoThis(() => _count++).Evaluate();
+			When.This(stringToCompare).Equals("foo").Or.When.This(stringToCompare).Equals(string.Empty).DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -117,7 +117,7 @@ namespace FluentEvaluator.Tests
 	{
 		protected override void Context()
 		{
-			When.This(1).Equals(3).Or.When(2).Equals(5).DoThis(() => _count++).Evaluate();
+			When.This(1).Equals(3).Or.When.This(2).Equals(5).DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
