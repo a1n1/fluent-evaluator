@@ -29,7 +29,7 @@ namespace FluentEvaluator.Conjunctions
 		{
 			get
 			{
-				return new AndEvaluation<object>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
+				return new OrEvaluation<object>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 			}
 		}
 
