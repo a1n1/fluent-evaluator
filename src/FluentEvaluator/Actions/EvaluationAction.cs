@@ -56,7 +56,7 @@ namespace FluentEvaluator.Actions
 		{
 			get
 			{
-				return new Or(EvaluationToPerform, ContinueEvaluations);
+				return new Or(EvaluationToPerform, ContinueEvaluations, ObjectToEvaluate);
 			}
 		}
 

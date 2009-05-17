@@ -28,4 +28,12 @@ namespace FluentEvaluator.Conjunctions
 	{
 		IEvaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
 	}
+
+	public interface IConjunctiveWhen : IWhen
+	{
+		IObjectEvaluation<EvaluationAction, object> It { get; }
+		
+		IObjectEvaluation<EvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
+
+	}
 }
