@@ -3,24 +3,20 @@ using FluentEvaluator.Evaluations;
 
 namespace FluentEvaluator.Conjunctions
 {
-	public class OtherwiseWhen : IOtherwiseWhen
+	public class OrWhen : IOrWhen
 	{
-		public OtherwiseWhen(bool evaluationToPerform, EvaluationConclusion evaluationConclusion, bool continueEvaluations)
+		public OrWhen(bool evaluationToPerform, bool continueEvaluations)
 		{
-			ContinueEvaluations = continueEvaluations;
-
-			if(evaluationToPerform)
-			{
-				evaluationConclusion.Evaluate(true);
-				ContinueEvaluations = false;
-			}
-
 			EvaluationToPerform = evaluationToPerform;
-
+			ContinueEvaluations = continueEvaluations;
 		}
 
-
 		protected bool EvaluationToPerform
+		{
+			get; set;
+		}
+
+		protected bool ContinueEvaluations
 		{
 			get;
 			set;
@@ -28,7 +24,7 @@ namespace FluentEvaluator.Conjunctions
 
 		public virtual IEvaluationAction This(bool boolToEvaluate)
 		{
-			EvaluationToPerform = boolToEvaluate;
+			EvaluationToPerform |= boolToEvaluate;
 
 			return new EvaluationAction(boolToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
@@ -78,18 +74,9 @@ namespace FluentEvaluator.Conjunctions
 			return new NumericEvaluation<ushort>(numberToEvaluate, ContinueEvaluations);
 		}
 
-		protected bool ContinueEvaluations
+		public virtual OrEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
-			get; set;
+			return new OrEvaluation<TypeToEvaluate>(objectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
-
-		public virtual ObjectEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
-		{
-			return new ObjectEvaluation<TypeToEvaluate>(objectToEvaluate, ContinueEvaluations);
-		}
-	}
-
-	public interface IOtherwiseWhen:IWhen
-	{
 	}
 }

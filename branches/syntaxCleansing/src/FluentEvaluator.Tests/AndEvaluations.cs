@@ -22,7 +22,7 @@ namespace FluentEvaluator.Tests
 			_testableFoo = null;
 
 			When.This(_testableFoo).IsNull
-				.And.When(_testableString).IsNull
+				.And.When.This(_testableString).IsNull
 				.DoThis(() => _count++).Evaluate();
 		}
 
@@ -44,7 +44,7 @@ namespace FluentEvaluator.Tests
 			_testableFoo = new TestableFoo();
 
 			When.This(_testableFoo).IsNull
-				.And.When(_testableString).IsNull
+				.And.When.This(_testableString).IsNull
 				.DoThis(() => _count++).Evaluate();
 		}
 
@@ -65,7 +65,7 @@ namespace FluentEvaluator.Tests
 			_testableString = "asdf";
 			_testableList = new List<object> { new object() };
 
-			When.This(_testableString).IsEmpty.And.When(_testableList).IsEmpty.DoThis(() => _count++).Evaluate();
+			When.This(_testableString).IsEmpty.And.When.This(_testableList).IsEmpty.DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -86,7 +86,7 @@ namespace FluentEvaluator.Tests
 			_testableString = string.Empty;
 			_testableList = new List<object>();
 
-			When.This(_testableString).IsEmpty.And.When(_testableList).IsEmpty.DoThis(() => _count++).Evaluate();
+			When.This(_testableString).IsEmpty.And.When.This(_testableList).IsEmpty.DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -103,7 +103,7 @@ namespace FluentEvaluator.Tests
 	{
 		protected override void Context()
 		{
-			When.This(1).Equals(1).And.When(2).Equals(2).DoThis(() => _count++).Evaluate();
+			When.This(1).Equals(1).And.When.This(2).Equals(2).DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
@@ -120,7 +120,7 @@ namespace FluentEvaluator.Tests
 	{
 		protected override void Context()
 		{
-			When.This(1).Equals(3).And.When(2).Equals(5).DoThis(() => _count++).Evaluate();
+			When.This(1).Equals(3).And.When.This(2).Equals(5).DoThis(() => _count++).Evaluate();
 		}
 
 		[Test]
