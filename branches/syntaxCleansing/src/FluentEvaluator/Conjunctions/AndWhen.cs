@@ -3,7 +3,7 @@ using FluentEvaluator.Evaluations;
 
 namespace FluentEvaluator.Conjunctions
 {
-	public class AndWhen : IAndWhen
+	public class AndWhen : IConjunctiveWhen
 	{
 		public AndWhen(bool evaluationToPerform, bool continueEvaluations, object objectToEvaluate)
 		{
@@ -26,7 +26,7 @@ namespace FluentEvaluator.Conjunctions
 			set;
 		}
 
-		public AndEvaluation<object> It { get
+		public IObjectEvaluation<EvaluationAction, object> It { get
 		{
 			return new AndEvaluation<object>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		} }
@@ -83,7 +83,7 @@ namespace FluentEvaluator.Conjunctions
 			return new NumericEvaluation<ushort>(numberToEvaluate, ContinueEvaluations);
 		}
 
-		public virtual AndEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+		public virtual IObjectEvaluation<EvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
 			return new AndEvaluation<TypeToEvaluate>(objectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}

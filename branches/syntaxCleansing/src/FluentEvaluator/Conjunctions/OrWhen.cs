@@ -3,13 +3,16 @@ using FluentEvaluator.Evaluations;
 
 namespace FluentEvaluator.Conjunctions
 {
-	public class OrWhen : IOrWhen
+	public class OrWhen : IConjunctiveWhen
 	{
-		public OrWhen(bool evaluationToPerform, bool continueEvaluations)
+		public OrWhen(bool evaluationToPerform, bool continueEvaluations, object objectToEvaluate)
 		{
 			EvaluationToPerform = evaluationToPerform;
 			ContinueEvaluations = continueEvaluations;
+			ObjectToEvaluate = objectToEvaluate;
 		}
+
+		protected object ObjectToEvaluate { get; set; }
 
 		protected bool EvaluationToPerform
 		{
@@ -20,6 +23,14 @@ namespace FluentEvaluator.Conjunctions
 		{
 			get;
 			set;
+		}
+
+		public IObjectEvaluation<EvaluationAction, object> It
+		{
+			get
+			{
+				return new AndEvaluation<object>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
+			}
 		}
 
 		public virtual IEvaluationAction This(bool boolToEvaluate)
@@ -74,7 +85,7 @@ namespace FluentEvaluator.Conjunctions
 			return new NumericEvaluation<ushort>(numberToEvaluate, ContinueEvaluations);
 		}
 
-		public virtual OrEvaluation<TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+		public virtual IObjectEvaluation<EvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
 			return new OrEvaluation<TypeToEvaluate>(objectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
