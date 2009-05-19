@@ -3,10 +3,26 @@ using FluentEvaluator.Actions;
 
 namespace FluentEvaluator.Evaluations
 {
-	public class ObjectEvaluation<TypeToEvaluate> : Evaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate>, IObjectEvaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate>
+	public class ObjectEvaluation<TypeToEvaluate> : IObjectEvaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate>
 	{
-		public ObjectEvaluation(TypeToEvaluate objectToEvaluate, bool continueEvaluations) : base(objectToEvaluate, continueEvaluations)
+		public ObjectEvaluation(TypeToEvaluate objectToEvaluate, bool continueEvaluations)
 		{
+			ObjectToEvaluate = objectToEvaluate;
+			ContinueEvaluations = continueEvaluations;
+		}
+
+		protected bool ContinueEvaluations { get; set; }
+
+		protected virtual TypeToEvaluate ObjectToEvaluate
+		{
+			get;
+			set;
+		}
+
+		protected virtual bool EvaluationToPerform
+		{
+			get;
+			set;
 		}
 
 		public SingularAction<TypeToEvaluate> IsNull
@@ -36,7 +52,7 @@ namespace FluentEvaluator.Evaluations
 			}
 		}
 
-		public override SingularAction<TypeToEvaluate> Equals(TypeToEvaluate objectToEqual)
+		public SingularAction<TypeToEvaluate> Equals(TypeToEvaluate objectToEqual)
 		{
 			EvaluationToPerform = (ObjectToEvaluate.Equals(objectToEqual));
 			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);

@@ -3,14 +3,30 @@ using FluentEvaluator.Actions;
 
 namespace FluentEvaluator.Evaluations
 {
-	public class NumericEvaluation<TypeToEvaluate> : Evaluation<EvaluationAction, TypeToEvaluate>, INumericEvaluation<EvaluationAction, TypeToEvaluate>
+	public class NumericEvaluation<TypeToEvaluate> : INumericEvaluation<EvaluationAction, TypeToEvaluate>
 		where TypeToEvaluate : IComparable<TypeToEvaluate>
 	{
-		public NumericEvaluation(TypeToEvaluate objectToEvaluate, bool continueEvaluations) : base(objectToEvaluate, continueEvaluations)
+		public NumericEvaluation(TypeToEvaluate objectToEvaluate, bool continueEvaluations)
 		{
+			ObjectToEvaluate = objectToEvaluate;
+			ContinueEvaluations = continueEvaluations;
 		}
 
-		public override EvaluationAction Equals(TypeToEvaluate objectToEqual)
+		protected bool ContinueEvaluations { get; set; }
+
+		protected virtual TypeToEvaluate ObjectToEvaluate
+		{
+			get;
+			set;
+		}
+
+		protected virtual bool EvaluationToPerform
+		{
+			get;
+			set;
+		}
+
+		public EvaluationAction Equals(TypeToEvaluate objectToEqual)
 		{
 			EvaluationToPerform = Equals(CompareType.EqualTo, EvaluationUtilities.GetComparisonType(objectToEqual.CompareTo(ObjectToEvaluate)));
 			
