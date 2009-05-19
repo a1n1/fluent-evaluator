@@ -46,6 +46,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Actions\EvaluationAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Actions\Otherwise.cs" />
     <Compile Include="Conjunctions\And.cs" />
     <Compile Include="Conjunctions\AndWhen.cs" />
@@ -60,12 +63,10 @@
     <Compile Include="Conjunctions\Or.cs" />
     <Compile Include="Evaluations\OrEvaluation.cs" />
     <Compile Include="Conjunctions\OrWhen.cs" />
-    <Compile Include="Actions\OtherwiseAction.cs" />
     <Compile Include="Conjunctions\OtherwiseWhen.cs" />
     <Compile Include="Actions\SingularAction.cs" />
     <Compile Include="Evaluations\NumericEvaluation.cs" />
     <Compile Include="When.cs" />
-    <Compile Include="Actions\EvaluationAction.cs" />
     <Compile Include="Evaluations\ObjectEvaluation.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@ using FluentEvaluator.Actions;
 namespace FluentEvaluator.Evaluations
 {
 	public interface IObjectEvaluation<TypeOfAction, TypeToEvaluate> : IEvaluation<TypeOfAction, TypeToEvaluate>
-		where TypeOfAction : EvaluationAction
+		where TypeOfAction : IEvaluationAction
 	{
 		TypeOfAction IsNull
 		{

@@ -25,7 +25,7 @@ namespace FluentEvaluator.Conjunctions
 			set;
 		}
 
-		public IObjectEvaluation<EvaluationAction, object> It
+		public IObjectEvaluation<IEvaluationAction, object> It
 		{
 			get
 			{
@@ -85,7 +85,7 @@ namespace FluentEvaluator.Conjunctions
 			return new NumericEvaluation<ushort>(numberToEvaluate, ContinueEvaluations);
 		}
 
-		public virtual IObjectEvaluation<EvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+		public virtual IObjectEvaluation<IEvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
 			return new OrEvaluation<TypeToEvaluate>(objectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}

@@ -26,7 +26,7 @@ namespace FluentEvaluator.Conjunctions
 			set;
 		}
 
-		public IObjectEvaluation<EvaluationAction, object> It { get
+		public IObjectEvaluation<IEvaluationAction, object> It { get
 		{
 			return new AndEvaluation<object>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		} }
@@ -83,7 +83,7 @@ namespace FluentEvaluator.Conjunctions
 			return new NumericEvaluation<ushort>(numberToEvaluate, ContinueEvaluations);
 		}
 
-		public virtual IObjectEvaluation<EvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
+		public virtual IObjectEvaluation<IEvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate)
 		{
 			return new AndEvaluation<TypeToEvaluate>(objectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
