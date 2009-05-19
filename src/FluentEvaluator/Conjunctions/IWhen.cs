@@ -34,6 +34,5 @@ namespace FluentEvaluator.Conjunctions
 		IObjectEvaluation<EvaluationAction, object> It { get; }
 		
 		IObjectEvaluation<EvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
-
 	}
 }
