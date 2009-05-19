@@ -3,7 +3,7 @@ using FluentEvaluator.Actions;
 
 namespace FluentEvaluator.Evaluations
 {
-	public class OrEvaluation<TypeToEvaluate> : IObjectEvaluation<EvaluationAction, TypeToEvaluate>
+	public class OrEvaluation<TypeToEvaluate> : IObjectEvaluation<IEvaluationAction, TypeToEvaluate>
 	{
 		public OrEvaluation(TypeToEvaluate objectToEvaluate, bool conjuctiveEvaluation, bool continueEvaluations)
 		{
@@ -30,7 +30,7 @@ namespace FluentEvaluator.Evaluations
 			set;
 		}
 
-		public EvaluationAction IsNull
+		public IEvaluationAction IsNull
 		{
 			get
 			{
@@ -39,7 +39,7 @@ namespace FluentEvaluator.Evaluations
 			}
 		}
 
-		public EvaluationAction IsEmpty
+		public IEvaluationAction IsEmpty
 		{
 			get
 			{
@@ -48,7 +48,7 @@ namespace FluentEvaluator.Evaluations
 			}
 		}
 
-		public EvaluationAction IsNotEmpty
+		public IEvaluationAction IsNotEmpty
 		{
 			get
 			{
@@ -57,7 +57,7 @@ namespace FluentEvaluator.Evaluations
 			}
 		}
 
-		public EvaluationAction Equals(TypeToEvaluate objectToEqual)
+		public IEvaluationAction Equals(TypeToEvaluate objectToEqual)
 		{
 			if (Equals(ObjectToEvaluate, default(TypeToEvaluate)))
 				EvaluationToPerform |= false;
@@ -67,7 +67,7 @@ namespace FluentEvaluator.Evaluations
 			return new EvaluationAction(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
 
-		public EvaluationAction IsNotNull
+		public IEvaluationAction IsNotNull
 		{
 			get
 			{
@@ -76,7 +76,7 @@ namespace FluentEvaluator.Evaluations
 			}
 		}
 
-		public EvaluationAction Satisfies(Predicate<TypeToEvaluate> match)
+		public IEvaluationAction Satisfies(Predicate<TypeToEvaluate> match)
 		{
 			EvaluationUtilities.EnsurePredicateIsValid(match);
 

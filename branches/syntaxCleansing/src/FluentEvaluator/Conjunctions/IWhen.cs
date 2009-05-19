@@ -26,13 +26,13 @@ namespace FluentEvaluator.Conjunctions
 
 	public interface ISingularWhen : IWhen
 	{
-		IEvaluation<SingularAction<TypeToEvaluate>, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
+		IEvaluation<IEvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
 	}
 
 	public interface IConjunctiveWhen : IWhen
 	{
-		IObjectEvaluation<EvaluationAction, object> It { get; }
-		
-		IObjectEvaluation<EvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
+		IObjectEvaluation<IEvaluationAction, object> It { get; }
+
+		IObjectEvaluation<IEvaluationAction, TypeToEvaluate> This<TypeToEvaluate>(TypeToEvaluate objectToEvaluate);
 	}
 }

@@ -10,7 +10,7 @@ namespace FluentEvaluator
 			return new ObjectEvaluation<TypeToEvaluate>(objectToEvaluate, true);
 		}
 
-		public static EvaluationAction This(bool boolToEvaluate)
+		public static IEvaluationAction This(bool boolToEvaluate)
 		{
 			return new EvaluationAction(boolToEvaluate, boolToEvaluate, true);
 		}

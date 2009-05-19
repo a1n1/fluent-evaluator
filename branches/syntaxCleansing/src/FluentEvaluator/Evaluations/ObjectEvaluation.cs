@@ -30,7 +30,7 @@ namespace FluentEvaluator.Evaluations
 			get
 			{
 				EvaluationToPerform = (Equals(ObjectToEvaluate, default(TypeToEvaluate)));
-				return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
+				return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 			}
 		}
 
@@ -39,7 +39,7 @@ namespace FluentEvaluator.Evaluations
 			get
 			{
 				EvaluationToPerform = EvaluationUtilities.CheckIfObjectToEvaluateIsEmpty(ObjectToEvaluate);
-				return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
+				return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 			}
 		}
 
@@ -48,14 +48,14 @@ namespace FluentEvaluator.Evaluations
 			get
 			{
 				EvaluationToPerform = EvaluationUtilities.CheckIfObjectToEvaluateIsNotEmpty(ObjectToEvaluate);
-				return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
+				return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 			}
 		}
 
 		public SingularAction<TypeToEvaluate> Equals(TypeToEvaluate objectToEqual)
 		{
 			EvaluationToPerform = (ObjectToEvaluate.Equals(objectToEqual));
-			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
+			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
         
 		public SingularAction<TypeToEvaluate> IsNotNull
@@ -63,7 +63,7 @@ namespace FluentEvaluator.Evaluations
 			get
 			{
 				EvaluationToPerform = (!Equals(ObjectToEvaluate, default(TypeToEvaluate)));
-				return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
+				return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace FluentEvaluator.Evaluations
 
 			EvaluationToPerform = (match(ObjectToEvaluate));
 
-			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform);
+			return new SingularAction<TypeToEvaluate>(ObjectToEvaluate, EvaluationToPerform, ContinueEvaluations);
 		}
 	}
 }
